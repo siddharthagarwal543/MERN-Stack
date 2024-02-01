@@ -8,6 +8,7 @@ import Register from './pages/Register'
 import Service from './pages/Service'
 import Navbar from './components/Navbar'
 import Error from './pages/Error'
+import Logout from './pages/Logout'
 
 export default class App extends Component {
   render() {
@@ -22,6 +23,7 @@ export default class App extends Component {
         <Route path='/login' element={<Login/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/service' element={<Service/>}/>
+        <Route path='/logout' element={<Logout/>}/>
         <Route path='*' element={<Error/>}/>
       </Routes>
       </BrowserRouter>

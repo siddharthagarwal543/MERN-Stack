@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-
+import { useAuth } from '../store/auth';
 
 function Login() {
   const [user,setUser]=useState({
     email:"",
     password:""
   });
-
+  const {storeTokenInLS}=useAuth();
   const Navigate=useNavigate();
 
   const handleInput=(e)=>{
@@ -33,6 +33,8 @@ function Login() {
       if(response.ok){
         // const responseData=await response.json();
         // alert("registration successful");
+        const res_data=await response.json();
+        storeTokenInLS(res_data.token);
         setUser({username:"",password:""});
         // console.log(responseData);
         alert("Login Successful")
